@@ -6,7 +6,7 @@
 
 ### Requirement
 
-`sox` needs to be installed to be able to execute this.
+`sox` needs to be installed to be able to play the `mp3` file.
 
 On fedora,
 
@@ -16,7 +16,9 @@ sudo dnf install sox
 
 On other linux distros, you should probably be able to find formula for isntalling `sox`.
 
-On mac, probably `brew install sox`.
+On mac, probably you should be able to just run it.
+
+**Note**: Not supported for windows.
 
 ### Usage
 
