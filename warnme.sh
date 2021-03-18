@@ -8,27 +8,29 @@ echo "Set # of repeats. ${bold}Example: 10${normal} # Repeat 10 times" ; read nu
 
 osType=$(uname)
 counter=1
-echo "Program has started :)"
-while [ $counter -le $num ]
-do
-    sleep ${interval}
-    time=$(date +%H:%M:%S)
-    echo "${counter}: ${bold}${time}${normal}"
-    case "$osType" in
-            "Darwin")
-            {
-                afplay water.mp3
-            } ;;    
-            "Linux")
-            {
-                play -q water.mp3
-            } ;;
-            *) 
-            {
-                echo "Unsupported OS. Exiting... :("
-                exit
-            } ;;
-    esac
-    ((counter++))
-done
-echo "Program has ended."
+
+do_the_thing() {
+    echo "Program has started :)"
+    while [ $counter -le $num ]
+    do
+        sleep ${interval}m
+        time=$(date +%H:%M:%S)
+        echo "${counter}: ${bold}${time}${normal}"
+        $1
+        ((counter++))
+    done
+    echo "Program has ended."
+}
+
+case "$osType" in
+    "Darwin")
+        do_the_thing "afplay water.mp3"
+    ;;    
+    "Linux")
+        do_the_thing "play -q water.mp3"
+    ;;
+    *) 
+    {
+        echo "Unsupported OS :("
+    } ;;
+esac
