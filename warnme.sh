@@ -10,10 +10,11 @@ osType=$(uname)
 counter=1
 
 do_the_thing() {
+    local interval=$(( $interval * 60 ))
     echo "Program has started :)"
     while [ $counter -le $num ]
     do
-        sleep ${interval}m
+        sleep ${interval}
         time=$(date +%H:%M:%S)
         echo "${counter}: ${bold}${time}${normal}"
         $1
@@ -25,12 +26,11 @@ do_the_thing() {
 case "$osType" in
     "Darwin")
         do_the_thing "afplay water.mp3"
-    ;;    
+        ;;    
     "Linux")
         do_the_thing "play -q water.mp3"
-    ;;
+        ;;
     *) 
-    {
         echo "Unsupported OS :("
-    } ;;
+        ;;
 esac
