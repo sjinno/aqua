@@ -3,7 +3,7 @@
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-echo "Set interval.     ${bold}Example: 20${normal} # Every 20 mins" ; read interval
+echo "Set interval.     ${bold}Example: 20${normal} # Every 20 mins"   ; read interval
 echo "Set # of repeats. ${bold}Example: 10${normal} # Repeat 10 times" ; read num
 
 osType=$(uname)
@@ -16,8 +16,7 @@ do_the_thing() {
     do
         sleep ${interval}
         time=$(date +%H:%M:%S)
-        echo "${counter}: ${bold}${time}${normal}"
-        $1
+        echo "${counter}: ${bold}${time}${normal}" ; $1
         ((counter++))
     done
     echo "Program has ended."
