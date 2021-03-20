@@ -11,7 +11,7 @@ counter=1
 
 do_the_thing() {
     local interval=$(( $interval * 60 ))
-    echo "Program has started :)"
+    echo "Program has started. [${bold}$(date +%H:%M:%S)${normal}]"
     while [ $counter -le $num ]
     do
         sleep ${interval}
