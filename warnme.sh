@@ -27,7 +27,7 @@ case "$osType" in
         do_the_thing "afplay water.mp3"
         ;;    
     "Linux")
-        do_the_thing "play -q water.mp3"
+        do_the_thing "play -q --volume 0.6 water.mp3"
         ;;
     *) 
         echo "Unsupported OS :("
