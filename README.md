@@ -23,9 +23,5 @@ On mac, probably you should be able to just run it.
 ### Usage
 
 ```bash
-# 1. Give execution permission
-chmod u+x ./warnme.sh
-
-# 2. Run
-./warnme.sh
+bash warnme.sh
 ```
